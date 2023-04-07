@@ -11,8 +11,8 @@ const createBoard = (rows, columns) => {
                 exploded: false,
                 nearMines: 0
             }
-        })
-    })
+        });
+    });
 }
 
 const spreadMines = (board, minesAmount) => {

@@ -37,5 +37,5 @@ export const LevelSelection = ({ onCancel, isVisible, onLevelSelected }) => {
                 </View>
             </View>
         </Modal>
-    )
+    );
 }
