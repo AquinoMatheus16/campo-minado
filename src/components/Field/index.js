@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
 import { params } from "../../params";
 import { Mine } from "../Mine";
@@ -7,6 +7,7 @@ import { Flag } from "../Flag";
 export const Field = ({ mined, opened, nearMines, exploded, flagged, onOpen, onSelect }) => {
 
     const styleField = [styles.field];
+    const [isBlocked, setIsBlocked] = useState(false);
 
     if (opened) {
         styleField.push(styles.opened);
@@ -35,8 +36,19 @@ export const Field = ({ mined, opened, nearMines, exploded, flagged, onOpen, onS
         if (nearMines >= 6) color = '#F221A9';
     }
 
+    function handleLongPress(shouldBlock = true) {
+        setIsBlocked(shouldBlock);
+        onSelect();
+    }
+
+    function handlePress() {
+        if (!isBlocked) {
+            onOpen();
+        }
+    }
+
     return (
-        <TouchableWithoutFeedback onPress={onOpen} onLongPress={onSelect}>
+        <TouchableWithoutFeedback onPress={handlePress} onLongPress={() => handleLongPress(!isBlocked)}>
             <View style={styleField}>
                 {!mined && opened && nearMines > 0 ?
                     <Text style={[styles.label, { color: color }]}>{nearMines}</Text>

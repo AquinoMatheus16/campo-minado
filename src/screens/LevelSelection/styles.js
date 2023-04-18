@@ -23,13 +23,16 @@ export const styles = StyleSheet.create({
 
     button: {
         marginTop: 10,
-        padding: 5
+        padding: 5,
+        width: 200,
+        borderRadius: 10
     },
 
     buttonLabel: {
         fontSize: 20,
         color: '#EEEEEE',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
 
     bgEasy: {
