@@ -1,4 +1,4 @@
-# Compo minado
+# Campo minado
 
 <table>
   <tr>
