@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Linking, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { Flag } from "../Flag";
 
@@ -14,7 +14,7 @@ export const Header = ({ onFlagPress, flagsLeft, onNewGame }) => {
                 <Text style={styles.flagsLeft}>= {flagsLeft}</Text>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={onNewGame}>
+            <TouchableOpacity style={styles.button} onPress={onNewGame} onLongPress={() => Linking.openURL("https://github.com/AquinoMatheus16")}>
                 <Text style={styles.buttonLabel}>Novo Jogo</Text>
             </TouchableOpacity>
         </View>
